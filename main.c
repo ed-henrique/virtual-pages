@@ -87,7 +87,6 @@ int main() {
 
   fclose(f);
   free(data);
-  free(lastDataAddress);
 
   return 0;
 }
