@@ -2,7 +2,9 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 
+#define NDEBUG
 #define PAGESIZE 4096
 
 int main() {
@@ -51,6 +53,14 @@ int main() {
   uintptr_t lastDataAddressPageNumber = lastDataAddressAsInt >> 12;
   uintptr_t lastDataAddressPageOffset = lastDataAddressAsInt & 0xFFF;
 
+  // Assert that the last 5 bytes of data are equal to the
+  // last 5 bytes of our big file
+  assert(*(lastDataAddress - 4) == 'k');
+  assert(*(lastDataAddress - 3) == 's');
+  assert(*(lastDataAddress - 2) == '.');
+  assert(*(lastDataAddress - 1) == '\r');
+  assert(*(lastDataAddress)     == '\n');
+
   printf("Format (HEX):            PAGE_NUMBER PAGE_OFFSET\n");
   printf(
     "Data address (HEX):      0x%lx %03lx\n",
@@ -77,6 +87,7 @@ int main() {
 
   fclose(f);
   free(data);
+  free(lastDataAddress);
 
   return 0;
 }
