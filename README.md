@@ -15,6 +15,10 @@ docker run eduhenfm/virtual-pages
 ### From Source
 
 ```bash
+# Clone
+git clone git@github.com:ed-henrique/virtual-pages.git
+cd virtual-pages
+
 # Compile
 gcc -O3 -Wall -Wextra -o main main.c 
 
