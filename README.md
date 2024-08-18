@@ -2,7 +2,7 @@
 
 Simple example of how virtual memory pages work.
 
-We simply take [this file](./big-file.txt) (which is just the bible as text, and can be found [here](https://github.com/mxw/grmr/blob/master/src/finaltests/bible.txt)) and load it into memory, checking how many virtual memory pages we needed to allocate it.
+We simply take [this file](./big-file.txt) (which is just the bible as text, and can be found [here](https://github.com/mxw/grmr/blob/master/src/finaltests/bible.txt)) and load it into virtua memory using `mmap`, checking how many virtual memory pages we needed to allocate it.
 
 ## How to Compile and Run
 
